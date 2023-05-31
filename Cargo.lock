@@ -925,13 +925,14 @@ dependencies = [
 
 [[package]]
 name = "cqrs-es"
-version = "0.4.8"
+version = "0.4.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bd51aea1521d51b7aa249430e2160f857a5b0146098b08615022e7ee22f28f72"
+checksum = "8e8f5e2428d55f35e24416803c25638a06c17940ba99c24987c6af097b947ad9"
 dependencies = [
  "async-trait",
  "serde",
  "serde_json",
+ "thiserror",
  "tokio",
 ]
 
