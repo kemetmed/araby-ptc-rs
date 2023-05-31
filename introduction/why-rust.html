@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Why Rust - Veloxide</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/why-rust.html" class="active"><strong aria-hidden="true">1.1.</strong> Why Rust</a></li></ol></li><li class="chapter-item expanded "><a href="../architecture/index.html"><strong aria-hidden="true">2.</strong> Architecture</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../architecture/design-patterns.html"><strong aria-hidden="true">2.1.</strong> Design Patterns</a></li><li class="chapter-item expanded "><a href="../architecture/decisions/index.html"><strong aria-hidden="true">2.2.</strong> Architecture Decision Log</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../architecture/decisions/0001-record-architecture-decisions.html"><strong aria-hidden="true">2.2.1.</strong> 0001-record-architecture-decisions</a></li><li class="chapter-item expanded "><a href="../architecture/decisions/0002-use-rust-for-backend-software-development.html"><strong aria-hidden="true">2.2.2.</strong> 0002-use-rust-for-backend-software-development</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../components/index.html"><strong aria-hidden="true">3.</strong> Components of Veloxide</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../components/axum-web-framework.html"><strong aria-hidden="true">3.1.</strong> Axum Web Framework</a></li><li class="chapter-item expanded "><a href="../components/graphql.html"><strong aria-hidden="true">3.2.</strong> GraphQL</a></li><li class="chapter-item expanded "><a href="../components/observability.html"><strong aria-hidden="true">3.3.</strong> Observability</a></li><li class="chapter-item expanded "><a href="../components/database.html"><strong aria-hidden="true">3.4.</strong> Database</a></li></ol></li><li class="chapter-item expanded "><a href="../getting-started/index.html"><strong aria-hidden="true">4.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../getting-started/prerequisites.html"><strong aria-hidden="true">4.1.</strong> Prerequisites</a></li><li class="chapter-item expanded "><a href="../getting-started/set-up-your-project.html"><strong aria-hidden="true">4.2.</strong> Set up your project</a></li><li class="chapter-item expanded "><a href="../getting-started/folder-explanations.html"><strong aria-hidden="true">4.3.</strong> Folder Explanations</a></li><li class="chapter-item expanded "><a href="../getting-started/testing.html"><strong aria-hidden="true">4.4.</strong> Testing</a></li><li class="chapter-item expanded "><a href="../getting-started/tips.html"><strong aria-hidden="true">4.5.</strong> Tips</a></li></ol></li><li class="chapter-item expanded "><a href="../supporting-containers/index.html"><strong aria-hidden="true">5.</strong> Supporting Containers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../supporting-containers/postgres.html"><strong aria-hidden="true">5.1.</strong> Postgres</a></li><li class="chapter-item expanded "><a href="../supporting-containers/tempo.html"><strong aria-hidden="true">5.2.</strong> Tempo</a></li><li class="chapter-item expanded "><a href="../supporting-containers/prometheus.html"><strong aria-hidden="true">5.3.</strong> Prometheus</a></li><li class="chapter-item expanded "><a href="../supporting-containers/grafana.html"><strong aria-hidden="true">5.4.</strong> Grafana</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Veloxide</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="why-rust"><a class="header" href="#why-rust">Why Rust?</a></h1>
+<!-- markdownlint-disable MD033 -->
+<!-- toc -->
+<h2 id="rusts-rich-type-system"><a class="header" href="#rusts-rich-type-system">Rust's rich type system</a></h2>
+<p>Rust's rich type system is one of its most notable features, and it provides numerous benefits to developers.</p>
+<h3 id="ability-to-express-problems-and-solutions-precisely"><a class="header" href="#ability-to-express-problems-and-solutions-precisely">Ability to express problems and solutions precisely</a></h3>
+<p>Rust's rich type system provides developers with the ability to express problems and solutions precisely by allowing for highly specific type definitions and pattern matching. Rust's pattern matching capabilities enable developers to write code that is highly expressive and can handle complex data structures with ease. This level of precision and expressiveness allows developers to communicate their intent more clearly, reducing the likelihood of misunderstandings or errors in their code. Furthermore, the ability to express problems and solutions precisely also makes it easier for other developers to understand and maintain code, even if they are not familiar with the specifics of the problem domain. Overall, Rust's rich type system enables developers to write code that is highly precise, expressive, and easy to understand, which leads to more robust and maintainable software.</p>
+<h3 id="secure-and-reliable-no-null-pointer-dereferences-or-data-races"><a class="header" href="#secure-and-reliable-no-null-pointer-dereferences-or-data-races">Secure and reliable: No null pointer dereferences or data races</a></h3>
+<p>Rust's unique ownership model and type system eliminates many common programming errors such as buffer overflows and null / nil pointer dereferences, which can lead to bugs and security vulnerabilities. The type system ensures that code is correct at compile time, catching many errors that might otherwise slip through and cause bugs or crashes at runtime. This saves developers a significant amount of time and effort, as they can catch and fix issues earlier in the development process. Secondly, Rust's type system is designed to prevent common programming mistakes, such as null pointer dereferencing or data races, that can lead to security vulnerabilities or hard-to-debug issues.</p>
+<h2 id="speed-of-development"><a class="header" href="#speed-of-development">Speed of development</a></h2>
+<p>Rust's compiler shrinks the feedback loop between writing code and seeing the results. This makes it easy to iterate quickly and experiment with new ideas.</p>
+<p><img src="../images/value-delivery-feedback-loops.png" alt="value-delivery-feedback-loops" /></p>
+<h2 id="metaprogramming-with-macros"><a class="header" href="#metaprogramming-with-macros">Metaprogramming with Macros</a></h2>
+<p><a href="https://doc.rust-lang.org/book/ch19-06-macros.html">Macros</a> in Rust are a powerful tool that allows developers to write code that can generate other code at compile-time (<a href="https://en.wikipedia.org/wiki/Metaprogramming">metaprogramming</a>), making it possible to automate repetitive tasks, reduce boilerplate code, and achieve greater code reuse. Rust's macro system is highly flexible and expressive, allowing developers to define complex transformations on the code, such as code generation, syntactic transformations, and type inference. This makes Rust macros an excellent choice for tasks such as domain-specific language implementation, serialization and deserialization, and code optimization, among others. Furthermore, Rust's macro system is designed to be safe and predictable, preventing accidental code execution or memory errors, and producing clear error messages when issues arise.</p>
+<h2 id="legibility-rust-code-focuses-on-the-happy-flow"><a class="header" href="#legibility-rust-code-focuses-on-the-happy-flow">Legibility: Rust code focuses on the &quot;Happy Flow&quot;</a></h2>
+<p>Rust's <code>?</code> syntax, <code>Result</code> and <code>Option</code> types, lack of null/nil, and <code>match</code> keyword combine to make it easy to write code that focuses on the &quot;happy flow&quot; of the program. This makes it easy to write code that is easy to read, understand and maintain.</p>
+<h3 id="rust-vs-go-comparison"><a class="header" href="#rust-vs-go-comparison">Rust vs Go comparison</a></h3>
+<details>
+  <summary>Click to take a look at some Rust vs Go code comparisons</summary>
+<h3 id="go-do-something-example"><a class="header" href="#go-do-something-example">Go: Do something example</a></h3>
+<pre><code class="language-go">func DoSomething() (*MyResultType, error) {
+    result, err := SomeOperation()
+    if err != nil {
+        return nil, err
+    }
+    return result, nil
+}
+</code></pre>
+<p>In this example, the function DoSomething calls SomeOperation and checks the error value. If an error occurs, it is returned, otherwise the function returns the result.</p>
+<p>Now let's take a look at the equivalent Rust code:</p>
+<h3 id="rust-do-something-equivalent"><a class="header" href="#rust-do-something-equivalent">Rust: Do something equivalent</a></h3>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn do_something() -&gt; Result&lt;MyResultType, Error&gt; {
+    let result = some_operation()?;
+    Ok(result)
+}
+<span class="boring">}</span></code></pre></pre>
+<p>In Rust, the ? operator is used to propagate errors up the call stack. If an error occurs in some_operation, it is returned as a Result type, and the ? operator automatically returns the error from the some_operation function up the stack.</p>
+<p>Here's how the outer function might look like in Go:</p>
+<h3 id="go-outer-function"><a class="header" href="#go-outer-function">Go (outer function)</a></h3>
+<pre><code class="language-go">func doSomethingElse() (*MyResultType, error) {
+    val, err := SomeOperation()
+    if err != nil {
+        if errors.Is(err, ErrorKindNotFound) {
+            fmt.Println(&quot;Xyz resource was not found&quot;)
+            return nil, ErrorKindNotFound
+        }
+        fmt.Println(&quot;A different error message&quot;)
+        return nil, err
+    }
+    return val, nil
+}
+</code></pre>
+<p>The indentation here for such a simple case makes the code increasingly difficult to read. The <code>if</code> statements are nested, and the <code>return</code> statements are scattered throughout the function. A reference to nil occurs 4(!) times, and all this combines to make it much harder follow the intended, &quot;happy&quot; flow of the code.</p>
+<p>Here's how Rust's match statements can be used to handle different error conditions, reduce indentation, and keep the focus on the happy flow:</p>
+<h3 id="rust-outer-function-equivalent"><a class="header" href="#rust-outer-function-equivalent">Rust (outer function) equivalent</a></h3>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn do_something_else() -&gt; Result&lt;MyResultType, Error&gt; {
+    let result = match some_other_operation() {
+        Ok(val) =&gt; val,
+        Err(ErrorKind::NotFound) =&gt; {
+            println!(&quot;Xyz resource was not found&quot;)
+            return err;
+        },
+        Err(err) =&gt; {
+            println!(&quot;A different error message&quot;)
+            return err;
+        },
+    };
+    Ok(result)
+}
+<span class="boring">}</span></code></pre></pre>
+<p>In this example, the <code>match</code> statement is used to handle different error conditions. If the <code>some_other_operation</code> call returns an Ok value, the result is assigned to result. If the call returns a NotFound error, the function returns an error with the same type. If the call returns any other error, the function returns that error.</p>
+<p>Rust's error handling, ? syntax, and match statements work together to keep the focus on the happy flow by providing concise and expressive ways to handle errors and propagate them up the call stack. This makes it easier for developers to write correct and maintainable code, and it makes it easier for other developers to read and understand the code. The value in this is hard to overstate.</p>
+</details>
+<h2 id="ecosystem-and-community-support"><a class="header" href="#ecosystem-and-community-support">Ecosystem and Community support</a></h2>
+<p>Rust has a active community of developers who contribute to its ecosystem of libraries and tools. There is often a &quot;best-in-class&quot; crate for any given problem at hand, meaning you can learn one API and you needn't learn another. Rust libaries have a tendency to end up &quot;<a href="https://www.youtube.com/watch?v=Q3AhzHq8ogs">finished</a>&quot;, often requiriing little to no maintenance. This means that you can focus on your application's domain logic, rather than the plumbing.</p>
+<h2 id="performance"><a class="header" href="#performance">Performance</a></h2>
+<p>When evaluating the performance of programming languages, individual benchmarks may be vulnerable to manipulation and difficult to interpret. To mitigate this issue, the <a href="https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/rust-go.html">Benchmarks Game</a> has assessed multiple algorithms for each language, comparing various stats from their performance to provide a more comprehensive evaluation of language tradeoffs.</p>
+<p>In the Benchmarks Game's evaluation of various algorithms, Rust demonstrated superior optimization compared to Go. The most optimized Rust code outperformed the most optimized Go code by at least 30% across all tested algorithms, with some benchmarks showing even greater differences. For instance, in the binary-trees benchmark, Rust's most optimized code was 12 times faster than Go's. Additionally, in many cases, even the least optimized Rust code was faster than the most optimized Go code.</p>
+<p><img src="../images/benchmark-game-binary-trees.png" alt="binary-trees" /></p>
+<p><img src="../images/benchmark-game-pidigits.png" alt="pidigits" /></p>
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<p>Overall, Rust provides a better developer experience by providing a shorter feedback loop and more legible code, Rust code is considered more secure than any other language out there, it's more performant than just about all languages except C, and it has a vibrant community of developers who contribute to its ecosystem of libraries and tools. These factors make Rust an outstanding choice for developing secure, reliable, and performant software of almost any kind (data science (Python) and frontend development (Typescript) are clear exceptions, for now).</p>
+<p>Why <strong><em>wouldn't</em></strong> you choose rust for your next project?</p>
+<h2 id="additional-resources"><a class="header" href="#additional-resources">Additional Resources</a></h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=DnT-LUQgc7s">Considering Rust</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../introduction/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../architecture/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../introduction/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../architecture/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

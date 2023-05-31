@@ -1,0 +1,12 @@
+[alias]     # command aliases
+b = "build"
+c = "check"
+t = "test"
+
+prisma = "run -p prisma-cli --"
+
+rm = "run -p veloxide-server --features mysql"
+mysql = "run -p veloxide-server --features mysql"
+
+rp = "run -p veloxide-server --features postgres"
+postgres = "run -p veloxide-server --features postgres"

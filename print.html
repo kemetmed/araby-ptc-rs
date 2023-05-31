@@ -1,0 +1,701 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Veloxide</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/why-rust.html"><strong aria-hidden="true">1.1.</strong> Why Rust</a></li></ol></li><li class="chapter-item expanded "><a href="architecture/index.html"><strong aria-hidden="true">2.</strong> Architecture</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="architecture/design-patterns.html"><strong aria-hidden="true">2.1.</strong> Design Patterns</a></li><li class="chapter-item expanded "><a href="architecture/decisions/index.html"><strong aria-hidden="true">2.2.</strong> Architecture Decision Log</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="architecture/decisions/0001-record-architecture-decisions.html"><strong aria-hidden="true">2.2.1.</strong> 0001-record-architecture-decisions</a></li><li class="chapter-item expanded "><a href="architecture/decisions/0002-use-rust-for-backend-software-development.html"><strong aria-hidden="true">2.2.2.</strong> 0002-use-rust-for-backend-software-development</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="components/index.html"><strong aria-hidden="true">3.</strong> Components of Veloxide</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="components/axum-web-framework.html"><strong aria-hidden="true">3.1.</strong> Axum Web Framework</a></li><li class="chapter-item expanded "><a href="components/graphql.html"><strong aria-hidden="true">3.2.</strong> GraphQL</a></li><li class="chapter-item expanded "><a href="components/observability.html"><strong aria-hidden="true">3.3.</strong> Observability</a></li><li class="chapter-item expanded "><a href="components/database.html"><strong aria-hidden="true">3.4.</strong> Database</a></li></ol></li><li class="chapter-item expanded "><a href="getting-started/index.html"><strong aria-hidden="true">4.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="getting-started/prerequisites.html"><strong aria-hidden="true">4.1.</strong> Prerequisites</a></li><li class="chapter-item expanded "><a href="getting-started/set-up-your-project.html"><strong aria-hidden="true">4.2.</strong> Set up your project</a></li><li class="chapter-item expanded "><a href="getting-started/folder-explanations.html"><strong aria-hidden="true">4.3.</strong> Folder Explanations</a></li><li class="chapter-item expanded "><a href="getting-started/testing.html"><strong aria-hidden="true">4.4.</strong> Testing</a></li><li class="chapter-item expanded "><a href="getting-started/tips.html"><strong aria-hidden="true">4.5.</strong> Tips</a></li></ol></li><li class="chapter-item expanded "><a href="supporting-containers/index.html"><strong aria-hidden="true">5.</strong> Supporting Containers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="supporting-containers/postgres.html"><strong aria-hidden="true">5.1.</strong> Postgres</a></li><li class="chapter-item expanded "><a href="supporting-containers/tempo.html"><strong aria-hidden="true">5.2.</strong> Tempo</a></li><li class="chapter-item expanded "><a href="supporting-containers/prometheus.html"><strong aria-hidden="true">5.3.</strong> Prometheus</a></li><li class="chapter-item expanded "><a href="supporting-containers/grafana.html"><strong aria-hidden="true">5.4.</strong> Grafana</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Veloxide</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD041 -->
+<h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p><img src="introduction/../images/Veloxide-Wordmark-FullBanner.jpg" alt="veloxide-banner" /></p>
+<p>Veloxide simplifies the web API development process, letting you focus on delivering value to your consumers. With Veloxide, you can enjoy a modern, easy-to-use, and fast technology stack that can be integrated with your business logic.</p>
+<p>Veloxide comes pre-built with an example bank acount domain. The intended use of Veloxide is to replace this domain with your own domain, following the architecture as laid out by Veloxide.</p>
+<h2 id="key-qualities"><a class="header" href="#key-qualities">Key Qualities</a></h2>
+<ul>
+<li><strong>Fast to code</strong>: Veloxide increases the speed of development by being simple, flexible and easy to use. Rust naturally <a href="https://en.wikipedia.org/wiki/Shift-left_testing">shifts bugs left</a> to the compiler, so less time is spent debugging code, and more time is spent delivering value.</li>
+<li><strong>Fewer bugs</strong>: All components of Veloxide are written in <a href="https://www.rust-lang.org">Rust</a>, which is famous for its safety and reliability <a href="https://www.infoq.com/news/2021/04/rust-linux-kernel-development/">[1]</a> <a href="https://security.googleblog.com/2023/01/supporting-use-of-rust-in-chromium.html">[2]</a> <a href="https://security.googleblog.com/2022/12/memory-safe-languages-in-android-13.html">[3]</a></li>
+<li><strong>Highly performant</strong>: Veloxide is built on top of the <a href="https://tokio.rs">Tokio</a> async runtime and <a href="https://github.com/tokio-rs/axum">Axum framework</a>, which leverage the power of Rust's <a href="https://doc.rust-lang.org/reference/expressions/await-expr.html">async/await syntax</a> and <a href="https://doc.rust-lang.org/beta/embedded-book/static-guarantees/zero-cost-abstractions.html">zero-cost abstractions</a> to give blazingly fast bare-metal performance.</li>
+<li><strong>Cloud native</strong>: Veloxide comes pre-configured with <a href="https://opentelemetry.io/">OpenTelemetry</a> for distributed tracing and a /metrics endpoint preconfigured for collection from <a href="https://prometheus.io/">Prometheus</a>.</li>
+<li><strong>Standards-based</strong>: Veloxide leverages the open standards for APIs: <a href="https://github.com/OAI/OpenAPI-Specification">OpenAPI</a>, <a href="https://json-schema.org/specification.html">JSON Schema</a> and <a href="https://graphql.org/">GraphQL</a>. You choose how you want your API to be consumed.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="why-rust"><a class="header" href="#why-rust">Why Rust?</a></h1>
+<!-- markdownlint-disable MD033 -->
+<!-- toc -->
+<h2 id="rusts-rich-type-system"><a class="header" href="#rusts-rich-type-system">Rust's rich type system</a></h2>
+<p>Rust's rich type system is one of its most notable features, and it provides numerous benefits to developers.</p>
+<h3 id="ability-to-express-problems-and-solutions-precisely"><a class="header" href="#ability-to-express-problems-and-solutions-precisely">Ability to express problems and solutions precisely</a></h3>
+<p>Rust's rich type system provides developers with the ability to express problems and solutions precisely by allowing for highly specific type definitions and pattern matching. Rust's pattern matching capabilities enable developers to write code that is highly expressive and can handle complex data structures with ease. This level of precision and expressiveness allows developers to communicate their intent more clearly, reducing the likelihood of misunderstandings or errors in their code. Furthermore, the ability to express problems and solutions precisely also makes it easier for other developers to understand and maintain code, even if they are not familiar with the specifics of the problem domain. Overall, Rust's rich type system enables developers to write code that is highly precise, expressive, and easy to understand, which leads to more robust and maintainable software.</p>
+<h3 id="secure-and-reliable-no-null-pointer-dereferences-or-data-races"><a class="header" href="#secure-and-reliable-no-null-pointer-dereferences-or-data-races">Secure and reliable: No null pointer dereferences or data races</a></h3>
+<p>Rust's unique ownership model and type system eliminates many common programming errors such as buffer overflows and null / nil pointer dereferences, which can lead to bugs and security vulnerabilities. The type system ensures that code is correct at compile time, catching many errors that might otherwise slip through and cause bugs or crashes at runtime. This saves developers a significant amount of time and effort, as they can catch and fix issues earlier in the development process. Secondly, Rust's type system is designed to prevent common programming mistakes, such as null pointer dereferencing or data races, that can lead to security vulnerabilities or hard-to-debug issues.</p>
+<h2 id="speed-of-development"><a class="header" href="#speed-of-development">Speed of development</a></h2>
+<p>Rust's compiler shrinks the feedback loop between writing code and seeing the results. This makes it easy to iterate quickly and experiment with new ideas.</p>
+<p><img src="introduction/../images/value-delivery-feedback-loops.png" alt="value-delivery-feedback-loops" /></p>
+<h2 id="metaprogramming-with-macros"><a class="header" href="#metaprogramming-with-macros">Metaprogramming with Macros</a></h2>
+<p><a href="https://doc.rust-lang.org/book/ch19-06-macros.html">Macros</a> in Rust are a powerful tool that allows developers to write code that can generate other code at compile-time (<a href="https://en.wikipedia.org/wiki/Metaprogramming">metaprogramming</a>), making it possible to automate repetitive tasks, reduce boilerplate code, and achieve greater code reuse. Rust's macro system is highly flexible and expressive, allowing developers to define complex transformations on the code, such as code generation, syntactic transformations, and type inference. This makes Rust macros an excellent choice for tasks such as domain-specific language implementation, serialization and deserialization, and code optimization, among others. Furthermore, Rust's macro system is designed to be safe and predictable, preventing accidental code execution or memory errors, and producing clear error messages when issues arise.</p>
+<h2 id="legibility-rust-code-focuses-on-the-happy-flow"><a class="header" href="#legibility-rust-code-focuses-on-the-happy-flow">Legibility: Rust code focuses on the &quot;Happy Flow&quot;</a></h2>
+<p>Rust's <code>?</code> syntax, <code>Result</code> and <code>Option</code> types, lack of null/nil, and <code>match</code> keyword combine to make it easy to write code that focuses on the &quot;happy flow&quot; of the program. This makes it easy to write code that is easy to read, understand and maintain.</p>
+<h3 id="rust-vs-go-comparison"><a class="header" href="#rust-vs-go-comparison">Rust vs Go comparison</a></h3>
+<details>
+  <summary>Click to take a look at some Rust vs Go code comparisons</summary>
+<h3 id="go-do-something-example"><a class="header" href="#go-do-something-example">Go: Do something example</a></h3>
+<pre><code class="language-go">func DoSomething() (*MyResultType, error) {
+    result, err := SomeOperation()
+    if err != nil {
+        return nil, err
+    }
+    return result, nil
+}
+</code></pre>
+<p>In this example, the function DoSomething calls SomeOperation and checks the error value. If an error occurs, it is returned, otherwise the function returns the result.</p>
+<p>Now let's take a look at the equivalent Rust code:</p>
+<h3 id="rust-do-something-equivalent"><a class="header" href="#rust-do-something-equivalent">Rust: Do something equivalent</a></h3>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn do_something() -&gt; Result&lt;MyResultType, Error&gt; {
+    let result = some_operation()?;
+    Ok(result)
+}
+<span class="boring">}</span></code></pre></pre>
+<p>In Rust, the ? operator is used to propagate errors up the call stack. If an error occurs in some_operation, it is returned as a Result type, and the ? operator automatically returns the error from the some_operation function up the stack.</p>
+<p>Here's how the outer function might look like in Go:</p>
+<h3 id="go-outer-function"><a class="header" href="#go-outer-function">Go (outer function)</a></h3>
+<pre><code class="language-go">func doSomethingElse() (*MyResultType, error) {
+    val, err := SomeOperation()
+    if err != nil {
+        if errors.Is(err, ErrorKindNotFound) {
+            fmt.Println(&quot;Xyz resource was not found&quot;)
+            return nil, ErrorKindNotFound
+        }
+        fmt.Println(&quot;A different error message&quot;)
+        return nil, err
+    }
+    return val, nil
+}
+</code></pre>
+<p>The indentation here for such a simple case makes the code increasingly difficult to read. The <code>if</code> statements are nested, and the <code>return</code> statements are scattered throughout the function. A reference to nil occurs 4(!) times, and all this combines to make it much harder follow the intended, &quot;happy&quot; flow of the code.</p>
+<p>Here's how Rust's match statements can be used to handle different error conditions, reduce indentation, and keep the focus on the happy flow:</p>
+<h3 id="rust-outer-function-equivalent"><a class="header" href="#rust-outer-function-equivalent">Rust (outer function) equivalent</a></h3>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn do_something_else() -&gt; Result&lt;MyResultType, Error&gt; {
+    let result = match some_other_operation() {
+        Ok(val) =&gt; val,
+        Err(ErrorKind::NotFound) =&gt; {
+            println!(&quot;Xyz resource was not found&quot;)
+            return err;
+        },
+        Err(err) =&gt; {
+            println!(&quot;A different error message&quot;)
+            return err;
+        },
+    };
+    Ok(result)
+}
+<span class="boring">}</span></code></pre></pre>
+<p>In this example, the <code>match</code> statement is used to handle different error conditions. If the <code>some_other_operation</code> call returns an Ok value, the result is assigned to result. If the call returns a NotFound error, the function returns an error with the same type. If the call returns any other error, the function returns that error.</p>
+<p>Rust's error handling, ? syntax, and match statements work together to keep the focus on the happy flow by providing concise and expressive ways to handle errors and propagate them up the call stack. This makes it easier for developers to write correct and maintainable code, and it makes it easier for other developers to read and understand the code. The value in this is hard to overstate.</p>
+</details>
+<h2 id="ecosystem-and-community-support"><a class="header" href="#ecosystem-and-community-support">Ecosystem and Community support</a></h2>
+<p>Rust has a active community of developers who contribute to its ecosystem of libraries and tools. There is often a &quot;best-in-class&quot; crate for any given problem at hand, meaning you can learn one API and you needn't learn another. Rust libaries have a tendency to end up &quot;<a href="https://www.youtube.com/watch?v=Q3AhzHq8ogs">finished</a>&quot;, often requiriing little to no maintenance. This means that you can focus on your application's domain logic, rather than the plumbing.</p>
+<h2 id="performance"><a class="header" href="#performance">Performance</a></h2>
+<p>When evaluating the performance of programming languages, individual benchmarks may be vulnerable to manipulation and difficult to interpret. To mitigate this issue, the <a href="https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/rust-go.html">Benchmarks Game</a> has assessed multiple algorithms for each language, comparing various stats from their performance to provide a more comprehensive evaluation of language tradeoffs.</p>
+<p>In the Benchmarks Game's evaluation of various algorithms, Rust demonstrated superior optimization compared to Go. The most optimized Rust code outperformed the most optimized Go code by at least 30% across all tested algorithms, with some benchmarks showing even greater differences. For instance, in the binary-trees benchmark, Rust's most optimized code was 12 times faster than Go's. Additionally, in many cases, even the least optimized Rust code was faster than the most optimized Go code.</p>
+<p><img src="introduction/../images/benchmark-game-binary-trees.png" alt="binary-trees" /></p>
+<p><img src="introduction/../images/benchmark-game-pidigits.png" alt="pidigits" /></p>
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<p>Overall, Rust provides a better developer experience by providing a shorter feedback loop and more legible code, Rust code is considered more secure than any other language out there, it's more performant than just about all languages except C, and it has a vibrant community of developers who contribute to its ecosystem of libraries and tools. These factors make Rust an outstanding choice for developing secure, reliable, and performant software of almost any kind (data science (Python) and frontend development (Typescript) are clear exceptions, for now).</p>
+<p>Why <strong><em>wouldn't</em></strong> you choose rust for your next project?</p>
+<h2 id="additional-resources"><a class="header" href="#additional-resources">Additional Resources</a></h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=DnT-LUQgc7s">Considering Rust</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="domain-driven-design-ddd"><a class="header" href="#domain-driven-design-ddd">Domain Driven Design (DDD)</a></h1>
+<p>Domain-driven design (DDD) is an approach to software development that aims to align the software model with the business domain it serves. It involves several key concepts:</p>
+<ul>
+<li>
+<p>Ubiquitous Language: DDD emphasizes the importance of establishing a common language between the development team and the business stakeholders. This language should be used consistently throughout the project to ensure that everyone is on the same page.</p>
+</li>
+<li>
+<p>Bounded Contexts: DDD recognizes that different parts of a software system may have different contexts and requirements. Bounded contexts define the boundaries of a specific part of the system and the language used within it.</p>
+</li>
+<li>
+<p>Entities and Value Objects: Entities are objects that have a unique identity and can change over time. Value objects, on the other hand, have no identity and are immutable. Both are important concepts in DDD for representing the business domain.</p>
+</li>
+<li>
+<p>Aggregates: Aggregates are a collection of related objects that are treated as a single unit. They are responsible for maintaining consistency and enforcing business rules within a bounded context.</p>
+</li>
+<li>
+<p>Domain Events: Domain events represent significant changes in the state of the domain model. They are used to communicate between different parts of the system and can trigger actions in other bounded contexts.</p>
+</li>
+<li>
+<p>Repositories: Repositories are used to store and retrieve domain objects from a data store. They abstract away the details of data access and provide a simple interface for the application to interact with.</p>
+</li>
+</ul>
+<p>DDD is a holistic approach to software design that prioritizes understanding the business domain and building a model that reflects it. By using a common language and focusing on the core concepts of the domain, developers can create more maintainable and scalable software systems.</p>
+<h2 id="domain-driven-design-in-veloxide"><a class="header" href="#domain-driven-design-in-veloxide">Domain Driven Design in Veloxide</a></h2>
+<p>The concepts of Aggregates, Entities, Value Objects, and Domain Events are all implemented in Veloxide using the <a href="https://docs.rs/cqrs-es/latest/cqrs_es/">CQRS</a> crate. Further docs on the CQRS crate can be <a href="https://doc.rust-cqrs.org/intro.html">found here</a>.</p>
+<p>Repositories are implemented using traits to provide a simple interface for the application to interact with, although this implementation is subject to change.</p>
+<p>The concepts of Bounded Contexts and Ubiquitous Language are important concepts to apply when designing a domain model, however are not implemented in Veloxide as there isn't a real domain for the stack itself.</p>
+<p>Layered Architecture is detailed in the design patterns section.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="design-patterns"><a class="header" href="#design-patterns">Design Patterns</a></h1>
+<p>Veloxide implements the following design patterns:</p>
+<ul>
+<li><strong><a href="https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs">CQRS</a></strong>: Veloxide uses Command Query Responsibility Segregation (CQRS) to help simplify and optimize the design by separating the read (view) and write (command) models.</li>
+<li><strong><a href="https://martinfowler.com/eaaDev/EventSourcing.html">Event Sourcing</a></strong>: Veloxide uses Event Sourcing to persist domain events to the database. Event sourcing is used to tie the read and write models together, as well as providing a complete and accurate audit trail of changes made to a system, which can be useful for debugging, compliance, and various other purposes.</li>
+<li><strong><a href="https://en.wikipedia.org/wiki/Multitier_architecture">Layered Architecture</a></strong>: The codebase is divided into layers, each with a specific responsibility, as per the principles of <a href="https://en.wikipedia.org/wiki/Domain-driven_design">Domain-Driven Design</a>. This makes the application easier to understand and maintain.</li>
+</ul>
+<h2 id="cqrs--event-sourcing"><a class="header" href="#cqrs--event-sourcing">CQRS &amp; Event Sourcing</a></h2>
+<h3 id="documentation-for-the-cqrs-es-crate"><a class="header" href="#documentation-for-the-cqrs-es-crate">Documentation for the CQRS-ES Crate</a></h3>
+<p>The book describing the CQRS-ES crate used in Veloxide can be found <a href="https://doc.rust-cqrs.org/">here</a>.</p>
+<h2 id="layered-architecture"><a class="header" href="#layered-architecture">Layered Architecture</a></h2>
+<h2 id="domain-driven-design-layers"><a class="header" href="#domain-driven-design-layers">Domain Driven Design Layers</a></h2>
+<p>Veloxide implements the layers as specified in domain driven design.</p>
+<p><img src="architecture/../images/ddd-layers.png" alt="Domain Driven Design Layers" /></p>
+<h3 id="presentation-layer"><a class="header" href="#presentation-layer">Presentation Layer</a></h3>
+<p>The Presentation Layer is responsible for handling user interactions and presenting information to users. It is where the user interface resides and it interacts with the application layer to get and process the required data. The presentation layer should be designed in such a way that it is decoupled from the application layer to enable the application layer to evolve independently. It is important to design the presentation layer with a user-centric approach that focuses on the user's needs and requirements, rather than solely on technical implementation details. The presentation layer should be easy to maintain, extend and change, and it should follow the SOLID principles of software design.</p>
+<h3 id="application-layer"><a class="header" href="#application-layer">Application Layer</a></h3>
+<p>The Application Layer is responsible for coordinating business logic and translating high-level commands from the Presentation Layer into lower-level operations that can be performed by the Domain Layer. The Application Layer acts as a facade that hides the complexity of the Domain Layer from the Presentation Layer and other clients. It is responsible for transaction management, security, and validation. It should also enforce business rules and policies, and orchestrate the interactions between different parts of the system. The Application Layer should be designed in such a way that it is reusable, extensible, and testable. It should be loosely coupled to the other layers of the system, enabling each layer to evolve independently.</p>
+<h3 id="domain-layer"><a class="header" href="#domain-layer">Domain Layer</a></h3>
+<p>The Domain Layer represents the core of the business logic and knowledge of the system. It encapsulates the domain concepts, business rules, and behaviors of the system. The Domain Layer should be designed with a domain-centric approach that focuses on the understanding and modeling of the domain, rather than technical implementation details. It should be designed to be reusable and extendable, enabling the domain model to evolve as the business requirements change. The Domain Layer should also be decoupled from the infrastructure and application layers, allowing it to be tested independently and to support multiple user interfaces and data sources. The Domain Layer is critical to the success of a Domain Driven Design project as it is the source of competitive advantage and differentiation for the system.</p>
+<h3 id="infrastructure-layer"><a class="header" href="#infrastructure-layer">Infrastructure Layer</a></h3>
+<p>The Infrastructure Layer is responsible for providing support to the other layers by providing the necessary technical infrastructure such as databases, messaging systems, and external services. The Infrastructure Layer should be designed to be decoupled from the other layers to enable them to evolve independently. It should also provide abstractions and interfaces that shield the Domain Layer and Application Layer from the complexities of the underlying infrastructure. The Infrastructure Layer should be designed to be modular and replaceable, enabling the system to adapt to changing technical requirements and to support different deployment environments. The Infrastructure Layer is critical to the success of a Domain Driven Design project as it provides the foundation upon which the other layers can build.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="architecture-decision-records"><a class="header" href="#architecture-decision-records">Architecture Decision Records</a></h1>
+<p>Under construction.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1-record-architecture-decisions"><a class="header" href="#1-record-architecture-decisions">1. Record architecture decisions</a></h1>
+<p>Date: 2023-03-16</p>
+<h2 id="status"><a class="header" href="#status">Status</a></h2>
+<p>Accepted</p>
+<h2 id="context"><a class="header" href="#context">Context</a></h2>
+<p>We need to record the architectural decisions made on this project.</p>
+<h2 id="decision"><a class="header" href="#decision">Decision</a></h2>
+<p>We will use Architecture Decision Records, as <a href="http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions">described by Michael Nygard</a>.</p>
+<h2 id="consequences"><a class="header" href="#consequences">Consequences</a></h2>
+<p>See Michael Nygard's article, linked above. For a lightweight ADR toolset, see Nat Pryce's <a href="https://github.com/npryce/adr-tools">adr-tools</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="2-use-rust-for-backend-software-development"><a class="header" href="#2-use-rust-for-backend-software-development">2. Use Rust for backend software development</a></h1>
+<p>Date: 2023-03-16</p>
+<h2 id="status-1"><a class="header" href="#status-1">Status</a></h2>
+<p>Accepted</p>
+<h2 id="context-1"><a class="header" href="#context-1">Context</a></h2>
+<p>We need to select a language to write the backend software in.</p>
+<p>We expect our chosen language to be:</p>
+<ul>
+<li>Easy to learn</li>
+<li>Easy to maintain</li>
+<li>Fast to develop with / prove a concept</li>
+<li>Secure</li>
+<li>Reliable</li>
+<li>Performant</li>
+<li>Expected to remain a relevant language in the industry</li>
+</ul>
+<h2 id="decision-1"><a class="header" href="#decision-1">Decision</a></h2>
+<p>We will use Rust.</p>
+<h2 id="consequences-1"><a class="header" href="#consequences-1">Consequences</a></h2>
+<ul>
+<li>New developers to the project have to learn Rust, however we believe it is a fantastic investment, akin to learning Kubernetes or SQL.</li>
+<li>Not going fullstack with Typescript means we do not get to leverage the tooling and ecosystem of Typescript technologies.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="components-of-veloxide"><a class="header" href="#components-of-veloxide">Components of Veloxide</a></h1>
+<p>Veloxide is comprised of the following components, the higher level of which we will cover in more detail in the following sections.</p>
+<div class="table-wrapper"><table><thead><tr><th>Component</th><th>Crate(s) of Significance</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Web Server</td><td><a href="https://docs.rs/axum/latest/axum/">Axum</a>, <a href="https://docs.rs/tower/0.4.13/tower/">Tower</a></td><td>The endpoint path and timestamp metadata for each issued command are captured and stored in the database in the events table.</td></tr>
+<tr><td>GraphQL</td><td><a href="https://docs.rs/async-graphql/latest/async_graphql/">async-graphql</a>, <a href="https://docs.rs/async-graphql-axum/5.0.6/async_graphql_axum/">async-graphql-axum</a></td><td></td></tr>
+<tr><td>OpenAPI Doc Generation</td><td><a href="https://docs.rs/utoipa/latest/utoipa/">Utopia</a></td><td>Serves interactive documentation at <code>/swagger-ui</code></td></tr>
+<tr><td>Async Runtime</td><td><a href="https://docs.rs/tokio/latest/tokio/index.html">Tokio</a></td><td></td></tr>
+<tr><td>Tracing</td><td><a href="https://docs.rs/tracing/latest/tracing/">Tracing</a> &amp; <a href="https://docs.rs/tracing-opentelemetry/latest/">Tracing OpenTelemetry</a> &amp; <a href="https://docs.rs/opentelemetry_otlp/latest/">OpenTelemetry-OTLP</a> &amp; <a href="https://docs.rs/tracing-log/latest/tracing_log/index.html">Tracing Log</a> &amp;</td><td>Use the <a href="https://docs.rs/tracing/latest/tracing/attr.instrument.html"><code>#[instrument]</code></a> macro to automatically generate new spans whenever a function is called! Also, all logs are automatically embedded in Trace spans by default!</td></tr>
+<tr><td>Metrics</td><td><a href="https://docs.rs/axum-prometheus/latest/axum_prometheus/">Axum Prometheus</a></td><td>Metrics are pre-configured for collection at /metrics</td></tr>
+<tr><td>Serializing &amp; Deserializing</td><td><a href="https://docs.rs/serde/latest/serde/index.html">Serde</a> (<a href="https://docs.rs/serde_yaml/latest/serde_yaml/">yaml</a> &amp; <a href="https://docs.rs/serde_json/latest/serde_json/">json</a>)</td><td></td></tr>
+<tr><td>Command Query Responsibility Segregation &amp; Event Sourcing</td><td><a href="https://docs.rs/cqrs-es/latest/cqrs_es/">cqrs-es</a></td><td></td></tr>
+<tr><td>Async Database Driver (SQL)</td><td><a href="https://docs.rs/sqlx/latest/sqlx/">SQLx</a></td><td>SQL queries are checked against the database for validity <em>at compile time</em></td></tr>
+<tr><td>Database agnostic, declarative database schema and Object Relational Mapping</td><td><a href="https://github.com/Brendonovich/prisma-client-rust">prisma-rust-client</a></td><td></td></tr>
+<tr><td>Mocking</td><td><a href="https://docs.rs/mockall/latest/mockall/">mockall</a></td><td>Leverage the power of Rust's macro system by using <a href="https://docs.rs/mockall/latest/mockall/attr.automock.html"><code>#[automock]</code></a> to automatically create mocks!</td></tr>
+<tr><td>Error Handling</td><td><a href="https://docs.rs/thiserror/latest/thiserror/">thiserror</a></td><td></td></tr>
+<tr><td>Behavior Driven Development / Cucumber Testing</td><td><a href="https://docs.rs/cucumber/latest/cucumber/">Cucumber</a></td><td></td></tr>
+<tr><td>Loading env variables &amp; .env file</td><td><a href="https://docs.rs/dotenvy/latest/dotenvy/">Dotenvy</a></td><td></td></tr>
+<tr><td>Improved assertion difference identification</td><td><a href="https://docs.rs/pretty_assertions/latest/pretty_assertions/">Pretty Assertions</a></td><td>Highlights the difference in tests character by character</td></tr>
+<tr><td>Supercharged derive attributes</td><td><a href="https://mcarton.github.io/rust-derivative/latest/index.html">Derivative</a></td><td></td></tr>
+<tr><td>Code coverage generation</td><td><a href="https://github.com/taiki-e/cargo-llvm-cov">cargo-llmvm-cov</a></td><td></td></tr>
+<tr><td>Automatic Typescript Binding Generation</td><td><a href="https://docs.rs/ts-rs/latest/ts_rs">ts-rs</a></td><td>Automatically generates TypeScript interfaces for your Rust view models!</td></tr>
+</tbody></table>
+</div><!-- | Authentication using OpenID Connect | [openidconnect-rs](https://docs.rs/openidconnect/latest/openidconnect/) | Log in with Google (other providers to come) (Work-in-progress, hopefully coming soon!) | -->
+<div style="break-before: page; page-break-before: always;"></div><h1 id="web-framework-axum"><a class="header" href="#web-framework-axum">Web Framework: Axum</a></h1>
+<ul>
+<li>
+<p>Axum is a web framework built on top of <a href="https://tokio.rs/">Tokio</a> and <a href="https://github.com/tower-rs/tower">Tower</a></p>
+</li>
+<li>
+<p>Axum's Ecosystem can be found <a href="https://github.com/tokio-rs/axum/blob/main/ECOSYSTEM.md">here</a></p>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="graphql"><a class="header" href="#graphql">GraphQL</a></h1>
+<!-- markdownlint-disable MD033 -->
+<h2 id="introduction-to-graphql"><a class="header" href="#introduction-to-graphql">Introduction to GraphQL</a></h2>
+<p>GraphQL is a query language for APIs that was developed by Facebook in 2012 and has since gained popularity among developers for a number of reasons:</p>
+<ul>
+<li>
+<p><strong>Improved developer experience:</strong> With GraphQL, developers can focus on defining the data schema and let the GraphQL engine handle the complexities of querying the data. This can lead to faster development times and a more intuitive development experience.</p>
+</li>
+<li>
+<p><strong>Flexibility:</strong> Because GraphQL allows clients to specify exactly what data they need, it enables greater flexibility in how data is retrieved and displayed. It also allows for easier iteration and evolution of APIs over time.</p>
+</li>
+<li>
+<p><strong>Better documentation:</strong> GraphQL APIs come with self-documentation capabilities, which means that developers can easily discover what data is available and how to query it without having to consult external documentation.</p>
+</li>
+<li>
+<p><strong>Strong typing:</strong> GraphQL has a strong type system that allows for better validation of queries and can help catch errors earlier in the development process.</p>
+</li>
+<li>
+<p><strong>Increased efficiency:</strong> GraphQL allows you to request only the data that you need, which reduces the amount of data transferred over the network and can result in faster response times.</p>
+</li>
+</ul>
+<p>Consequently, using GraphQL can lead to faster, more efficient, and more flexible API development, which can improve the developer experience and ultimately lead to better products.</p>
+<h2 id="graphql-in-veloxide"><a class="header" href="#graphql-in-veloxide">GraphQL in Veloxide</a></h2>
+<p>Veloxide implements a iGraphQL web interface on <code>http://localhost:8080/graphql</code> by default. This interface allows you to explore the GraphQL schema and execute queries against the API.</p>
+<h3 id="examples"><a class="header" href="#examples">Examples</a></h3>
+<details>
+  <summary>Open a new account:</summary>
+<pre><code class="language-graphql">mutation {
+  bankAccountMutation(
+    id: &quot;1234&quot;,
+    command: {
+      openAccount: {
+        accountId: &quot;1234&quot;
+      }
+    }
+  ){
+    accountId
+    balance
+    writtenChecks
+    accountTransactions{
+      description
+      amount
+    }
+  }
+}
+</code></pre>
+</details>
+<details>
+  <summary>Query an existing account:</summary>
+<pre><code class="language-graphql">query {
+  bankAccountQuery(id: &quot;1234&quot;) {
+    accountId
+    balance
+    writtenChecks
+    accountTransactions{
+      description
+      amount
+    }
+  }
+}
+</code></pre>
+</details>
+<details>
+  <summary>Query only the account balance:</summary>
+<pre><code class="language-graphql">query {
+  bankAccountQuery(id: &quot;1234&quot;) {
+    balance
+  }
+}
+</code></pre>
+</details>
+<details>
+  <summary>Deposit money into an account::</summary>
+<pre><code class="language-graphql">mutation {
+  bankAccountMutation(
+    id: &quot;1234&quot;,
+    command: {
+      depositMoney: {
+        amount: 123
+      }
+    }
+  ){
+    accountId
+    balance
+    writtenChecks
+    accountTransactions{
+      description
+      amount
+    }
+  }
+}
+</code></pre>
+</details>
+<details>
+  <summary>Withdraw money from an account:</summary>
+<pre><code class="language-graphql">mutation {
+  bankAccountMutation(
+    id: &quot;1234&quot;,
+    command: {
+      withdrawMoney: {
+        amount: 123,
+        atmId: &quot;ExampleAtmIdHere&quot;
+      }
+    }
+  ){
+    accountId
+    balance
+    writtenChecks
+    accountTransactions{
+      description
+      amount
+    }
+  }
+}
+</code></pre>
+</details>
+<h3 id="documentation-for-the-graphql-crate"><a class="header" href="#documentation-for-the-graphql-crate">Documentation for the GraphQL crate</a></h3>
+<p>The book describing the async-graphql library used in Veloxide can be found <a href="https://async-graphql.github.io/async-graphql/en/index.html">here</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="observability"><a class="header" href="#observability">Observability</a></h1>
+<h2 id="introduction-1"><a class="header" href="#introduction-1">Introduction</a></h2>
+<p>In the context of web APIs, Observability refers to the ability to gain insights into the performance and behavior of a system by collecting and analyzing data from its components. This includes metrics such as response times, error rates, and resource utilization, as well as logs, traces, and other telemetry data. Observability is essential for maintaining the reliability and efficiency of cloud-based systems, especially as they become more complex and distributed. By leveraging observability tools and techniques, developers and operators can quickly identify and diagnose issues, optimize performance, and improve the overall user experience. Ultimately, observability enables organizations to better understand and control their cloud environments, leading to improved business outcomes and customer satisfaction.</p>
+<h2 id="tracing"><a class="header" href="#tracing">Tracing</a></h2>
+<h3 id="introduction-to-tracing"><a class="header" href="#introduction-to-tracing">Introduction to Tracing</a></h3>
+<p>Tracing is a technique used in software applications to track and log the flow of requests as they traverse through different components of the system. Implementing tracing in a software application is important because it provides visibility into the performance and behavior of the system. By logging the various stages of a request, tracing can help developers identify bottlenecks and errors in the system, as well as the root cause of these issues. Tracing can also be used to optimize the performance of the system by identifying areas where processing time can be reduced. Additionally, tracing can be used to improve the user experience by providing insights into user behavior and usage patterns. Overall, implementing tracing is essential for building scalable, reliable, and observable software systems, which are critical in today's world of complex, distributed systems.</p>
+<h3 id="opentelemetry"><a class="header" href="#opentelemetry"><a href="https://opentelemetry.io/">OpenTelemetry</a></a></h3>
+<p>OpenTelemetry is an open-source observability framework that provides a standardized way of instrumenting software applications to collect telemetry data such as traces, metrics, and logs. It is a merger of two similar projects: OpenCensus and OpenTracing. OpenTelemetry provides a vendor-agnostic approach to instrumentation, allowing developers to instrument their applications once and then use any number of tracing, logging, or monitoring tools for analysis. OpenTelemetry supports most programming languages and platforms. It also supports various telemetry data types such as distributed traces, metrics, and logs, and provides a standardized way of propagating context across different components of the system. OpenTelemetry is rapidly gaining adoption as a standard for observability instrumentation in modern cloud-native applications.</p>
+<h2 id="monitoring"><a class="header" href="#monitoring">Monitoring</a></h2>
+<p>A /metrics endpoint is a URL endpoint that exposes operational metrics and monitoring data for a web application. It typically returns a standardized format of metrics data, such as in the form of JSON or plaintext.</p>
+<p>The value of a /metrics endpoint for a web application is that it provides insights into the performance and health of the application. It allows developers, system administrators, and other stakeholders to monitor and track key performance indicators (KPIs) related to the application's usage, behavior, and resource consumption.</p>
+<p>Some examples of metrics that a /metrics endpoint might expose include:</p>
+<ul>
+<li>
+<p>Request counts and response times: These metrics can provide insights into how many requests the application is handling, how quickly it is responding to them, and whether there are any issues with latency or performance.</p>
+</li>
+<li>
+<p>Error rates: This metric can help identify issues with the application, such as server errors, timeouts, or other problems that might be affecting the user experience.</p>
+</li>
+<li>
+<p>CPU and memory usage: These metrics can help identify whether the application is experiencing any resource constraints or performance issues that could affect its stability or reliability.</p>
+</li>
+<li>
+<p>Cache hit rates: This metric can provide insights into how often the application is able to serve requests from its cache, which can help identify potential opportunities for optimization or tuning.</p>
+</li>
+</ul>
+<p>Overall, a /metrics endpoint provides valuable insights into the inner workings of a web application, allowing developers and administrators to more effectively monitor, troubleshoot, and optimize the application's performance and reliability. The /metrics endpoint exposed by Veloxide is scraped by the Prometheus supporting container.</p>
+<h2 id="logging"><a class="header" href="#logging">Logging</a></h2>
+<h3 id="introduction-to-logging"><a class="header" href="#introduction-to-logging">Introduction to Logging</a></h3>
+<p>Logging is a technique used in software applications to record events that occur during the execution of a program. These events can include information such as errors, warnings, and other diagnostic data. Implementing logging in a software application is important because it provides visibility into the performance and behavior of the system. By logging events as they occur, developers can identify issues in the system, such as errors or performance bottlenecks, and then use this information to diagnose and resolve the issues. Logging can also be used to improve the user experience by providing insights into user behavior and usage patterns. Overall, implementing logging is essential for building scalable, reliable, and observable software systems, which are critical in today's world of complex, distributed systems.</p>
+<h3 id="bunyan"><a class="header" href="#bunyan">Bunyan</a></h3>
+<p>Bunyan is a logging library originally for Node.js applications. It was named after Paul Bunyan, the mythical lumberjack from American folklore, as a metaphor for cutting through the logs. Using Bunyan has several advantages:</p>
+<ol>
+<li>Structured logging: Bunyan logs are JSON objects, making it easy to filter, analyze, and process the log data. This structured approach allows for better log management and analysis in comparison to unstructured text logs.</li>
+<li>Third-party integrations: Bunyan integrates well with third-party log management and analysis tools, such as Logstash, Elasticsearch, Kibana or Grafana Loki. This allows you to leverage powerful log analysis and visualization tools to gain better insights into your application's performance and behavior.</li>
+<li>Readable logs: Bunyan provides a command-line tool called 'bunyan' that can be used to pretty-print log output, making it more human-readable.</li>
+</ol>
+<p>You will have the bunyan CLI tool installed if you have ran <code>just install-required</code> in the root of the project. The <code>bunyan</code> feature flag is enabled by default. If you want to test the locally, run the application and pipe the output into bunyan.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="database"><a class="header" href="#database">Database</a></h1>
+<h2 id="postgres"><a class="header" href="#postgres">Postgres</a></h2>
+<p>Postgres is a popular open source database. It is a relational database, which means that it stores data in tables. It is also a SQL database, which means that it uses the SQL language to query and manipulate data. Usage of relational databases is recommended.</p>
+<h2 id="sqlx"><a class="header" href="#sqlx">SQLx</a></h2>
+<p><a href="https://github.com/launchbadge/sqlx">See here</a></p>
+<h2 id="prisma"><a class="header" href="#prisma">Prisma</a></h2>
+<p><a href="https://www.prisma.io/">See here</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
+<ul>
+<li><a href="getting-started/./set-up-your-project.html">Set up your project</a></li>
+<li><a href="getting-started/./prerequisites.html">Prerequisites</a></li>
+<li><a href="getting-started/./folder-explanations.html">Folder Explanations</a></li>
+<li><a href="getting-started/./testing.html">Testing</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h1>
+<p>Prior to getting started you will need to have the following installed:</p>
+<ul>
+<li><a href="https://www.rust-lang.org/tools/install">Rust</a></li>
+<li><a href="https://docs.docker.com/get-docker/">Docker</a></li>
+<li><a href="https://github.com/casey/just">just</a></li>
+<li><a href="https://grpc.io/docs/protoc-installation/">Protobuf Compiler</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="set-up-your-project"><a class="header" href="#set-up-your-project">Set up your project</a></h1>
+<p>Install the Veloxide CLI:</p>
+<pre><code class="language-sh">&gt; cargo install veloxide
+</code></pre>
+<p>Create your own app:</p>
+<pre><code class="language-zsh">&gt; veloxide init my-app
+
+# Go to the created folder
+&gt; cd my-app
+
+# Install the required tools for development
+&gt; just install-required
+
+# Set the environment to use the Postgres config, start the supporting containers, and then run the app
+&gt; just dev-postgres
+
+# Once done, open `my-app/` in your IDE
+
+# Happy Coding!
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="folder-explanations"><a class="header" href="#folder-explanations">Folder Explanations</a></h1>
+<p>This document explains the purpose of each folder in the repository.</p>
+<ul>
+<li><a href="https://github.com/liamwh/veloxide/tree/main/crates/veloxide-server/src">src</a>:  This folder contains the source code for the application.
+<ul>
+<li><a href="https://github.com/liamwh/veloxide/tree/main/crates/veloxide-server/src/application">src/application</a>: This folder contains the application layer.</li>
+<li><a href="https://github.com/liamwh/veloxide/tree/main/crates/veloxide-server/src/domain">src/domain</a>: This folder contains the domain layer.</li>
+<li><a href="https://github.com/liamwh/veloxide/tree/main/crates/veloxide-server/src/presentation">src/presentation</a>: This folder contains the presentation layer, containing things like handlers, view models, the GraphQL server and the Axum web server.</li>
+</ul>
+</li>
+<li><a href="https://github.com/liamwh/veloxide/tree/main/crates/veloxide-server/tests">tests</a>: This folder contains the <a href="https://doc.rust-lang.org/rust-by-example/testing/integration_testing.html">integration tests</a> for the application, such as the BDD tests. <a href="https://doc.rust-lang.org/rust-by-example/testing/unit_testing.html">Unit tests</a> are found in the tests module found in the same file as the things they're testing.</li>
+<li><a href="https://github.com/liamwh/veloxide/tree/main/docker">docker</a>: This folder contains the configurations for the containers spun up by <code>docker-compose</code>.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="testing"><a class="header" href="#testing">Testing</a></h1>
+<ul>
+<li>Cover the domain with <a href="https://cucumber-rs.github.io/cucumber/main/quickstart.html">cucumber</a> tests or the framework provided by cqrs-es</li>
+<li>Use <a href="https://docs.rs/mockall/latest/mockall/">Mockall</a> everywhere else</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tips"><a class="header" href="#tips">Tips</a></h1>
+<ul>
+<li>The OpenAPI interactive documentation is available at <code>http://localhost:8080/swagger-ui/</code></li>
+<li>The GraphQL Playground is available at <code>http://localhost:8080/graphql</code></li>
+<li>There is a postman-collection that supports both the REST and GraphQL API at <code>veloxide-demo.postman_collection.json</code></li>
+<li>More helper commands can be shown by running <code>just</code> in the root directory.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="supporting-containers"><a class="header" href="#supporting-containers">Supporting Containers</a></h1>
+<p>Veloxide comes pre-configured with the following supporting containers found in the <code>docker-compose.yml</code> file:</p>
+<ul>
+<li><strong><a href="https://grafana.com/oss/tempo/">Tempo</a></strong>: Traces will be sent to Tempo using OTLP, which can be accessed at <code>http://localhost:3000/explore?</code>.</li>
+<li><strong><a href="https://prometheus.io/">Prometheus</a></strong> will be available at <code>http://localhost:9090</code>.</li>
+<li><strong><a href="https://grafana.com/">Grafana</a></strong>: Will be available at <code>http://localhost:3000</code>. The default username and password are both <code>admin</code>. Prometheus is already configured as the default data source.</li>
+<li><strong><a href="https://www.postgresql.org/">Postgres</a></strong> will be be listening on port <code>5432</code> for new connections. The connection string is loaded from the environment variable <code>DATABASE_URL</code>, which is pre-configured in the .env file.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="postgres-1"><a class="header" href="#postgres-1">Postgres</a></h1>
+<p>Postgres is a popular open source database. It is a reliable choice for a database. Other good options may include but are not limited to MySQL and Supabase.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tempo"><a class="header" href="#tempo"><a href="https://grafana.com/oss/tempo/">Tempo</a></a></h1>
+<p>Grafana Tempo is an open-source, distributed tracing backend designed for observability and troubleshooting of complex, distributed systems. It is designed to help developers troubleshoot and monitor complex distributed systems by providing visibility into the interactions between different components and services. Tempo collects, analyzes, and visualizes tracing data to provide a comprehensive picture of the system's performance, latency, and error rates. With Tempo, developers can easily trace requests across different services, identify bottlenecks, and optimize the system for better performance. Tempo supports multiple languages and platforms and various tracing data formats, making it an ideal tracing tool for modern, cloud-native applications. Additionally, Tempo provides advanced features such as distributed tracing and root cause analysis, making it suitable for identifying performance bottlenecks and other issues across complex, distributed systems. It also has a highly scalable architecture that can handle large volumes of tracing data, and integrates with other observability tools such as Prometheus, Loki and Grafana to provide a comprehensive observability solution. Sending traces to Tempo is a powerful way to gain deep visibility into the behavior and performance of a system, making it an excellent choice for observability instrumentation.</p>
+<h2 id="veloxide-and-tempo"><a class="header" href="#veloxide-and-tempo">Veloxide and Tempo</a></h2>
+<p>Veloxide is pre-configured to create traces automatically and send them to Tempo.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="prometheus"><a class="header" href="#prometheus">Prometheus</a></h1>
+<h2 id="introduction-to-prometheus"><a class="header" href="#introduction-to-prometheus">Introduction to Prometheus</a></h2>
+<p>Prometheus is an open-source monitoring and alerting system that is widely used in the DevOps and cloud computing communities. The value of Prometheus lies in its ability to provide powerful and flexible monitoring capabilities for cloud-native applications, microservices architectures, and other distributed systems.</p>
+<p>Some of the key benefits and value propositions of Prometheus are:</p>
+<ul>
+<li>
+<p>Scalability: Prometheus is designed to handle large-scale, highly dynamic environments, with support for horizontally scaling across multiple instances and federating metrics across different systems and clusters.</p>
+</li>
+<li>
+<p>Time-series data: Prometheus is optimized for collecting and querying time-series data, which is critical for monitoring and troubleshooting modern distributed systems that generate vast amounts of metrics over time.</p>
+</li>
+<li>
+<p>Flexibility: Prometheus supports a wide range of metrics formats, including the popular Prometheus format and other industry-standard formats like OpenMetrics and Graphite.</p>
+</li>
+<li>
+<p>Query language: Prometheus comes with a powerful query language called PromQL, which allows users to slice and dice metrics data in real-time and build complex queries and aggregations.</p>
+</li>
+<li>
+<p>Alerting: Prometheus includes a built-in alerting system that allows users to define rules and conditions for triggering alerts based on specific metrics and thresholds.</p>
+</li>
+<li>
+<p>Integrations: Prometheus integrates with a wide range of other tools and systems, including Grafana for data visualization, Kubernetes for container orchestration, and many other popular DevOps tools.</p>
+</li>
+</ul>
+<p>Overall, the value of Prometheus lies in its ability to provide a flexible, scalable, and powerful monitoring and alerting solution that can help DevOps teams and other stakeholders to gain deep insights into the performance and health of their applications and infrastructure, enabling them to proactively identify and resolve issues before they become critical.</p>
+<h2 id="veloxide-and-prometheus"><a class="header" href="#veloxide-and-prometheus">Veloxide and Prometheus</a></h2>
+<p>Veloxide exposes a /metrics endpoint by default, which the Prometheus instance spun up by docker compose will scrape by default.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="grafana"><a class="header" href="#grafana">Grafana</a></h1>
+<h2 id="introduction-to-grafana"><a class="header" href="#introduction-to-grafana">Introduction to Grafana</a></h2>
+<p>Grafana is a popular open-source data visualization and monitoring tool that provides a wide range of benefits and value propositions for users. Here are some of the key benefits of using Grafana:</p>
+<ul>
+<li>
+<p>Data Visualization: Grafana provides a flexible and intuitive interface for creating and customizing data visualizations, allowing users to easily create charts, graphs, dashboards, and other visualizations that can help them gain insights into their data.</p>
+</li>
+<li>
+<p>Integrations: Grafana supports a wide range of data sources, including popular databases like MySQL, PostgreSQL, and Microsoft SQL Server, as well as cloud services like AWS CloudWatch, Google Cloud Platform, and Microsoft Azure. This makes it easy for users to pull data from multiple sources and create unified dashboards and visualizations.</p>
+</li>
+<li>
+<p>Dashboard Sharing and Collaboration: Grafana allows users to easily share and collaborate on dashboards with other users, either within the organization or with external stakeholders. This can help teams to work more effectively together and ensure that everyone has access to the same data and insights.</p>
+</li>
+<li>
+<p>Alerting and Notifications: Grafana includes a built-in alerting system that allows users to set up alerts based on specific metrics or thresholds, and receive notifications via email, Slack, or other channels when those alerts are triggered. This can help teams to quickly identify and respond to issues before they become critical.</p>
+</li>
+<li>
+<p>Extensibility: Grafana is highly extensible, with a robust plugin architecture that allows users to add new features and functionality to the platform. This makes it possible to customize Grafana to meet specific business requirements and use cases.</p>
+</li>
+</ul>
+<p>Overall, Grafana provides a powerful and flexible platform for data visualization and monitoring, allowing users to gain deep insights into their data, collaborate effectively with others, and quickly identify and respond to issues as they arise.</p>
+<h2 id="veloxide-and-grafana"><a class="header" href="#veloxide-and-grafana">Veloxide and Grafana</a></h2>
+<p>The Grafana instance spun up by docker compose is configured to use Prometheus as a datasource, which in turn collects the metrics from /metrics. The Grafana instance is configured to use the Prometheus datasource by default. At the time of writing, there are no dashboards configured by default, but you can create your own however.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
