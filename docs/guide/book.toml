@@ -1,0 +1,10 @@
+[book]
+authors = ["Liam Woodleigh-Hardinge"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Veloxide"
+
+[preprocessor.toc]
+command = "mdbook-toc"
+renderer = ["html"]
