@@ -62,7 +62,7 @@ postgres-es = { version = "~0", optional = true}
 
 # OpenID Connect / OAuth2
 oauth2 = "~4"
-openidconnect = "~2"
+openidconnect = "~3"
 url = "~2"
 const_format = "~0"
 tower-cookies = "~0"
